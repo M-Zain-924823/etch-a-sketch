@@ -8,6 +8,20 @@ body {
     padding: 0px;
 }
 
+.input {
+    margin: 30px auto;
+    display: flex;
+    justify-content: center;
+    width: 400px;
+}
+.input > * {
+    flex: auto;
+}
+button {
+    max-width: 80px;
+    padding: 5px;
+}
+
 .container {
     border: 2px solid black;
     margin: auto;
