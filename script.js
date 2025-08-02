@@ -7,6 +7,8 @@ let selectedButton = 1;
 let blackButton = document.querySelector(".black");
 let rainbowButton = document.querySelector(".rainbow");
 let clearButton = document.querySelector(".clear");
+let toggle = document.querySelector(".toggle");
+let toggleEffect = "mouseover";
 drawgrid();
 
 blackButton.addEventListener("click", ()=> {selectedButton = 1});
@@ -32,7 +34,7 @@ function drawgrid(){
 
 function hoverEffect(){
     divNodes.forEach(node => {
-        node.addEventListener("mouseover", (e) => {
+        node.addEventListener(`${toggleEffect}`, (e) => {
             if(selectedButton==1) black(e);
             if(selectedButton==2) rainbow(e);
         })
@@ -65,4 +67,10 @@ clearButton.addEventListener("click", ()=> {
         node.style.backgroundColor = "white";
         node.style.border = "1px solid black";
     });
+});
+
+toggle.addEventListener("click", (e)=> {
+    if(toggleEffect=="mouseover") toggleEffect="click";
+    else toggleEffect="mouseover";
+    drawgrid();
 });
