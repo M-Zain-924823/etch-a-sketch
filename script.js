@@ -1,9 +1,16 @@
 let container = document.querySelector(".container");
 let gridLength = 16;
 let nodeSize = (400 / gridLength) -1;
-let btn = document.querySelector("button");
+let sizeOfGrid = document.querySelector(".sizeOfGrid");
 let divNodes = document.querySelectorAll(".container > *");
+let selectedButton = 1;
+let blackButton = document.querySelector(".black");
+let rainbowButton = document.querySelector(".rainbow");
+let clearButton = document.querySelector(".clear");
 drawgrid();
+
+blackButton.addEventListener("click", ()=> {selectedButton = 1});
+rainbowButton.addEventListener("click", ()=> {selectedButton = 2});
 
 function drawgrid(){
     container.innerHTML = "";
@@ -26,16 +33,36 @@ function drawgrid(){
 function hoverEffect(){
     divNodes.forEach(node => {
         node.addEventListener("mouseover", (e) => {
-            e.target.style.backgroundColor = "black";
-            e.target.style.border = "1px solid white";
+            if(selectedButton==1) black(e);
+            if(selectedButton==2) rainbow(e);
         })
     });
 }
 
-btn.addEventListener("click", (e) => {
+function black(e){
+    e.target.style.backgroundColor = "black";
+    e.target.style.border = "1px solid white";
+}
+
+function rainbow(e){
+    let r = Math.floor(Math.random()*255);
+    let g = Math.floor(Math.random()*255);
+    let b = Math.floor(Math.random()*255);
+    e.target.style.backgroundColor = `rgba(${r},${g},${b},${Math.random()})`;
+    e.target.style.border = "1px solid white";
+}
+
+sizeOfGrid.addEventListener("click", () => {
     let test = prompt("Enter size for test (1 to 100)");
     if (test > 0 && test <= 100){ 
         gridLength = test;
         drawgrid();
     }
+});
+
+clearButton.addEventListener("click", ()=> {
+    divNodes.forEach(node => {
+        node.style.backgroundColor = "white";
+        node.style.border = "1px solid black";
+    });
 });

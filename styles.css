@@ -8,10 +8,10 @@ body {
     text-align: center;
 }
 
-button {
+.sizeOfGrid {
     width: 180px;
     padding: 10px;
-    margin: 40px auto;
+    margin: 40px auto 20px auto;
 }
 
 .container {
@@ -34,4 +34,17 @@ button {
     height: 24px;
     margin: 0px;
     padding: 0px;
+}
+
+.controls {
+    width: 400px;
+    height: 60px;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.controls > * { 
+    padding: 5px 15px;
 }
