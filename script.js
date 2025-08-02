@@ -7,12 +7,14 @@ let selectedButton = 1;
 let blackButton = document.querySelector(".black");
 let rainbowButton = document.querySelector(".rainbow");
 let clearButton = document.querySelector(".clear");
+let eraseButton = document.querySelector(".erase");
 let toggle = document.querySelector(".toggle");
 let toggleEffect = "mouseover";
 drawgrid();
 
 blackButton.addEventListener("click", ()=> {selectedButton = 1});
 rainbowButton.addEventListener("click", ()=> {selectedButton = 2});
+eraseButton.addEventListener("click", ()=> {selectedButton = 3});
 
 function drawgrid(){
     container.innerHTML = "";
@@ -37,6 +39,7 @@ function hoverEffect(){
         node.addEventListener(`${toggleEffect}`, (e) => {
             if(selectedButton==1) black(e);
             if(selectedButton==2) rainbow(e);
+            if(selectedButton==3) erase(e);
         })
     });
 }
@@ -52,6 +55,11 @@ function rainbow(e){
     let b = Math.floor(Math.random()*255);
     e.target.style.backgroundColor = `rgba(${r},${g},${b},${Math.random()})`;
     e.target.style.border = "1px solid white";
+}
+
+function erase(e){
+    e.target.style.backgroundColor = "white";
+    e.target.style.border = "1px solid black";
 }
 
 sizeOfGrid.addEventListener("click", () => {
@@ -71,6 +79,6 @@ clearButton.addEventListener("click", ()=> {
 
 toggle.addEventListener("click", (e)=> {
     if(toggleEffect=="mouseover") toggleEffect="click";
-    else toggleEffect="mouseover";
+    else toggleEffect="mouseover"; 
     drawgrid();
 });
