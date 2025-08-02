@@ -43,3 +43,13 @@ function gridSize(e) {
         drawgrid();
     }
 }
+
+// Prompt input method (optional): 
+// let testSize = 0;
+// let promp = document.querySelector("#prompt");
+// promp.addEventListener("click", (e) => {
+//     testSize = prompt("Enter size for test");
+
+// console.log(testSize);
+// });
+// console.log(testSize);
