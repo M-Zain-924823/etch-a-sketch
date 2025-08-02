@@ -11,6 +11,7 @@ let divNodes = document.querySelectorAll(".container > *");
 divNodes.forEach(node => {
     node.addEventListener("mouseover", (e) => {
         e.target.style.backgroundColor = "black";
+        e.target.style.border = "1px solid white";
     })
 });
 
