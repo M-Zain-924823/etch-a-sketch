@@ -22,7 +22,7 @@ button {
 }
 
 .container {
-    border: 2px solid black;
+    border: 1px solid black;
     margin: auto;
     width: 400px;
     height: 400px;
@@ -31,10 +31,14 @@ button {
     align-items: stretch;
     align-content: space-between;
     flex-wrap: wrap;
+    gap: 0px;
+    padding: 0px;
 }
 
 .container > * {
-    border: 2px solid black;
+    border: 1px solid black;
     width: 24px;
     height: 24px;
+    margin: 0px;
+    padding: 0px;
 }
