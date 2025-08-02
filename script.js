@@ -1,5 +1,8 @@
 let container = document.querySelector(".container");
 let gridLength = 16;
+let nodeSize = (400 / gridLength) -1;
+let input = document.querySelector("input");
+let btn = document.querySelector("button");
 
 let divNodes = document.querySelectorAll(".container > *");
 drawgrid();
@@ -15,6 +18,11 @@ function drawgrid(){
     divNodes.innerHTML = "";
     divNodes = document.querySelectorAll(".container > *");
     hoverEffect();
+    nodeSize = (400 / gridLength) -1;
+    divNodes.forEach(node => {
+        node.style.width = `${nodeSize}px`;
+        node.style.height = `${nodeSize}px`;
+    });
 }
 
 function hoverEffect(){
@@ -26,8 +34,6 @@ function hoverEffect(){
     });
 }
 
-let input = document.querySelector("input");
-let btn = document.querySelector("button");
 input.addEventListener('keydown', (event) => {
     if (event.key == "Enter") {
         gridSize(event);
